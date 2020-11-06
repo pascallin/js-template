@@ -19,3 +19,10 @@ some javascript template stater for usage
 - `apollo-server`
 - `graphql-import` for collect graphql schema
 - `graphql-tools`
+
+### react-ant-control-panel
+
+- `eslint` for code style
+- react
+- redux
+- antd
