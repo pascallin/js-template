@@ -1,12 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import { Layout, Menu, Dropdown, Button, Row, Col } from "antd";
+
 import AppMenu from "./Menu";
 import authService from "../services/auth";
 import ServiceContext from "../contexts/ServiceContext";
 import { createServices } from "../services";
 
 const { Header, Content, Sider } = Layout;
+
+const LogoDiv = styled.div`
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+`;
 
 export default (Component) => {
   return class AppLayout extends React.Component {
@@ -52,13 +60,7 @@ export default (Component) => {
             collapsed={this.state.collapsed}
             onCollapse={this.onCollapse}
           >
-            <div
-              style={{
-                height: "32px",
-                margin: "16px",
-                textAlign: "center",
-              }}
-            ></div>
+            <LogoDiv />
             <AppMenu user={user}></AppMenu>
           </Sider>
           <Layout>

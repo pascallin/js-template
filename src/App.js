@@ -8,6 +8,7 @@ import authService from "./services/auth";
 
 import { RolePageHoc } from "./components/RoleCanHoc";
 import wrapLayout from "./components/LayoutHoc";
+import wrapContent from "./components/ContentHoc";
 import Page404 from "./pages/404";
 import Login from "./pages/Login";
 
@@ -27,7 +28,9 @@ function App(props) {
           key={menu.path}
           exact
           path={pathPrefix + menu.path}
-          component={wrapLayout(RolePageHoc(menu.roles)(menu.component))}
+          component={wrapLayout(
+            RolePageHoc(menu.roles)(wrapContent(menu.component))
+          )}
         ></Route>
       );
     });

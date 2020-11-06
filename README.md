@@ -9,6 +9,7 @@ this is a admin control panel
 - react
 - redux
 - antd
+- styled-components
 
 ## framework description（to be fullfil）
 

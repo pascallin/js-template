@@ -1,8 +1,5 @@
 import React from "react";
-import ContentHoc from "../components/ContentHoc";
 
-const Home = () => {
+export default function Home() {
   return <div>欢迎!</div>;
-};
-
-export default ContentHoc(Home);
+}
