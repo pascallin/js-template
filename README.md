@@ -26,3 +26,4 @@ some javascript template stater for usage
 - react
 - redux
 - antd
+- styled-components
