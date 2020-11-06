@@ -1,21 +1,23 @@
-# js-template
+# react antd control panel
 
-some javascript template stater for usage
+this is a admin control panel
 
-## branchs
+## tech stack
 
-### typescript-basic-template
+- using js
+- `eslint` for code style
+- react
+- redux
+- antd
 
-#### tech stack
+## framework description（to be fullfil）
 
-- `eslint` & `prettier` for code style
-- `commintlint` & `lint-staged` & `husky` for commit style and git hook
-- `typescript` & `tsnode` & `nodemon` for code running
+### folder construction
 
-### ts-apollo-server
+```shell
 
-#### tech stack
+```
 
-- `apollo-server`
-- `graphql-import` for collect graphql schema
-- `graphql-tools`
+### Common Components
+
+### API call
