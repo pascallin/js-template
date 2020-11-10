@@ -45,16 +45,18 @@ function App(props) {
             path="/login"
             exact
             render={(props) => {
-              const token = authService.getToken();
-              if (token) {
-                return (
-                  <Redirect
-                    to={{
-                      pathname: "/home",
-                      state: { from: props.location },
-                    }}
-                  />
-                );
+              if (!process.env.REACT_APP_DEBUG) {
+                const token = authService.getToken();
+                if (token) {
+                  return (
+                    <Redirect
+                      to={{
+                        pathname: "/home",
+                        state: { from: props.location },
+                      }}
+                    />
+                  );
+                }
               }
               return <Login {...props}></Login>;
             }}

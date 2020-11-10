@@ -42,16 +42,19 @@ export default (Component) => {
     }
 
     render() {
-      const token = authService.getToken();
-      const user = authService.getUser();
+      let user;
       const { history } = this.props;
-      if (!token) {
-        history.push("/login");
+
+      if (!process.env.REACT_APP_DEBUG) {
+        const token = authService.getToken();
+        if (!token) {
+          history.push("/login");
+        }
+        user = authService.getUser();
+        if (!user) return null;
       }
 
       const services = createServices();
-
-      if (!user) return null;
 
       return (
         <Layout style={{ minHeight: "100vh" }}>
@@ -66,19 +69,21 @@ export default (Component) => {
           <Layout>
             <Header>
               <Row type="flex" justify="end">
-                <Col>
-                  <Dropdown
-                    overlay={
-                      <Menu>
-                        <Menu.Item>
-                          <a onClick={() => this.logout()}>退出登录</a>
-                        </Menu.Item>
-                      </Menu>
-                    }
-                  >
-                    <Button>{user.nickname || user.username}</Button>
-                  </Dropdown>
-                </Col>
+                {user && (
+                  <Col>
+                    <Dropdown
+                      overlay={
+                        <Menu>
+                          <Menu.Item>
+                            <a onClick={() => this.logout()}>退出登录</a>
+                          </Menu.Item>
+                        </Menu>
+                      }
+                    >
+                      <Button>{user.nickname || user.username}</Button>
+                    </Dropdown>
+                  </Col>
+                )}
               </Row>
             </Header>
             <Content style={{ margin: "0 16px" }}>

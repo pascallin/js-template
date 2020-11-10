@@ -26,7 +26,9 @@ const AppMenu = (props) => {
         if (menu.path === "/") return null;
         if (menu.isMenu) return null;
         if (!menu.children) {
-          if (menu.roles.indexOf(user.role) === -1) return null;
+          if (!process.env.REACT_APP_SKIP_ROLE_CHECK) {
+            if (menu.roles.indexOf(user.role) === -1) return null;
+          }
           return (
             <Menu.Item key={menu.path} icon={menu.icon}>
               <Link to={menu.path} style={{ color: "white" }}>
@@ -35,7 +37,9 @@ const AppMenu = (props) => {
             </Menu.Item>
           );
         }
-        if (menu.roles.indexOf(user.role) === -1) return null;
+        if (!process.env.REACT_APP_SKIP_ROLE_CHECK) {
+          if (menu.roles.indexOf(user.role) === -1) return null;
+        }
         return (
           <SubMenu
             key={menu.path}
