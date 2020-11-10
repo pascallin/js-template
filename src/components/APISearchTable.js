@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Table, Button, Row, Col, Form } from "antd";
 import { UpOutlined, DownOutlined } from "@ant-design/icons";
 import * as R from "ramda";
+
+const ContainerDiv = styled.div``;
 
 const SORT_ORDER_MAP = {
   ascend: "asc",
@@ -71,7 +74,7 @@ function APISearchTable(props) {
   const count = expand ? 10 : 6;
 
   return (
-    <div>
+    <ContainerDiv>
       <Form
         form={form}
         name="advanced_search"
@@ -126,7 +129,7 @@ function APISearchTable(props) {
         onChange={handleTableChange}
         {...tableProps}
       />
-    </div>
+    </ContainerDiv>
   );
 }
 

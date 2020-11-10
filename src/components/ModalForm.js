@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Button, Modal, Form } from "antd";
+
+const ContainerDiv = styled.div`
+  padding: 15px;
+`;
 
 const CollectionCreateForm = (props) => {
   const { visible, onCreate, onCancel, confirmLoading } = props;
@@ -61,7 +66,7 @@ const CollectionsPage = (props) => {
   };
 
   return (
-    <div style={{ padding: "15px" }}>
+    <ContainerDiv>
       <Button
         type="primary"
         onClick={() => {
@@ -80,7 +85,7 @@ const CollectionsPage = (props) => {
       >
         {props.children}
       </CollectionCreateForm>
-    </div>
+    </ContainerDiv>
   );
 };
 
