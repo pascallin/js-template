@@ -83,9 +83,7 @@ const CollectionsPage = (props) => {
         }}
         confirmLoading={confirmLoading}
       >
-        {props.children.map((Child) => {
-          Child;
-        })}
+        {props.children}
       </CollectionCreateForm>
     </ContainerDiv>
   );
