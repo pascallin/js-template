@@ -6,7 +6,11 @@ import APISearchTable from "../components/APISearchTable";
 import ModalForm from "../components/ModalForm";
 import { tableData } from "../constant/mockData";
 
-export default function Plan() {
+function timeout(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export default function List() {
   const columns = [
     {
       title: "Key",
@@ -68,9 +72,6 @@ export default function Plan() {
     },
   ];
 
-  function timeout(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
   const saveAction = async (values) => {
     await timeout(3000);
     console.log("Received values of form: ", values);
@@ -107,6 +108,7 @@ export default function Plan() {
     for (let i = 0; i < count; i++) {
       children.push(
         <Form.Item
+          key={`field-${i}`}
           name={`field-${i}`}
           label={`Field ${i}`}
           rules={[
@@ -127,39 +129,38 @@ export default function Plan() {
   return (
     <div>
       <ModalForm saveAction={saveAction}>
-        <div>
-          <Form.Item
-            name="title"
-            label="Title"
-            rules={[
-              {
-                required: true,
-                message: "Please input the title of collection!",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item name="description" label="Description">
-            <Input type="textarea" />
-          </Form.Item>
-          <Form.Item
-            name="modifier"
-            className="collection-create-form_last-form-item"
-          >
-            <Radio.Group>
-              <Radio value="public">Public</Radio>
-              <Radio value="private">Private</Radio>
-            </Radio.Group>
-          </Form.Item>
-        </div>
+        <Form.Item
+          name="title"
+          label="Title"
+          rules={[
+            {
+              required: true,
+              message: "Please input the title of collection!",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item name="description" label="Description">
+          <Input type="textarea" />
+        </Form.Item>
+        <Form.Item
+          name="modifier"
+          className="collection-create-form_last-form-item"
+        >
+          <Radio.Group>
+            <Radio value="public">Public</Radio>
+            <Radio value="private">Private</Radio>
+          </Radio.Group>
+        </Form.Item>
       </ModalForm>
       <APISearchTable
         columns={columns}
         fetchMethod={fakeFetchMethod}
-        FormItemComponents={getFields()}
         reload={false}
-      />
+      >
+        {getFields()}
+      </APISearchTable>
     </div>
   );
 }

@@ -19,9 +19,9 @@ APISearchTable.propTypes = {
    * */
   fetchMethod: PropTypes.func.isRequired,
   columns: PropTypes.any, // antd table columns object
-  FormItemComponents: PropTypes.any, // antd Form.Item component array
   reload: PropTypes.bool.isRequired, // control table reloading from parent component
   tableProps: PropTypes.object, //  antd table props
+  children: PropTypes.arrayOf(PropTypes.element).isRequired, // some antd form item array
 };
 
 function APISearchTable(props) {
@@ -41,13 +41,7 @@ function APISearchTable(props) {
   const [form] = Form.useForm();
   const [expand, setExpand] = useState(false);
 
-  const {
-    fetchMethod,
-    columns,
-    reload,
-    tableProps,
-    FormItemComponents,
-  } = props;
+  const { fetchMethod, columns, reload, tableProps } = props;
 
   useEffect(async () => {
     const res = await fetchMethod(
@@ -71,7 +65,7 @@ function APISearchTable(props) {
     });
   };
 
-  const count = expand ? 10 : 6;
+  const count = expand ? props.children.length : 6;
 
   return (
     <ContainerDiv>
@@ -82,15 +76,11 @@ function APISearchTable(props) {
         style={{ paddingBottom: "15px" }}
       >
         <Row gutter={24}>
-          {R.slice(
-            0,
-            count,
-            FormItemComponents.map((Item, i) => (
-              <Col span={8} key={i}>
-                {Item}
-              </Col>
-            ))
-          )}
+          {R.slice(0, count, props.children).map((Child, i) => (
+            <Col span={8} key={i}>
+              {Child}
+            </Col>
+          ))}
         </Row>
         <Row>
           <Col span={24} style={{ textAlign: "right" }}>

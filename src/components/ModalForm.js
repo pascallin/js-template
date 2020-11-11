@@ -49,7 +49,7 @@ CollectionCreateForm.propTypes = {
   visible: PropTypes.bool.isRequired,
   onCreate: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element).isRequired, // some antd form item array
   confirmLoading: PropTypes.bool.isRequired,
 };
 
@@ -83,7 +83,9 @@ const CollectionsPage = (props) => {
         }}
         confirmLoading={confirmLoading}
       >
-        {props.children}
+        {props.children.map((Child) => {
+          Child;
+        })}
       </CollectionCreateForm>
     </ContainerDiv>
   );
@@ -91,7 +93,7 @@ const CollectionsPage = (props) => {
 
 CollectionsPage.propTypes = {
   saveAction: PropTypes.func.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element).isRequired, // some antd form item array
 };
 
 export default CollectionsPage;
