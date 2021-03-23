@@ -2,6 +2,13 @@
 
 some javascript template stater for usage
 
+## quick start
+
+```shell
+npm i -g @thruster/cli
+thruster create --from git --resource github.com:pascallin/js-template --path packages/react-antd-control-panel new-project
+```
+
 ## packages templates
 
 ### typescript-basic-template
