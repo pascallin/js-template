@@ -1,0 +1,12 @@
+{
+  "name": "js-templates",
+  "version": "1.0.0",
+  "description": "some templates for TS/JS usage",
+  "main": "index.js",
+  "repository": "git@github.com:pascallin/js-template.git",
+  "author": "pascallin <pascal_lin@foxmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
