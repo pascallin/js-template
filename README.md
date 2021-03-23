@@ -2,7 +2,7 @@
 
 some javascript template stater for usage
 
-## branchs
+## packages templates
 
 ### typescript-basic-template
 
