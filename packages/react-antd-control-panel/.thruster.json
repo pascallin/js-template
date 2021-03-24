@@ -1,6 +1,14 @@
 {
   "templatePath": ".",
   "extra": {
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject",
+      "lint": "yarn lint",
+      "lint:fix": "yarn lint --fix"
+    },
     "dependencies": {
       "@ant-design/icons": "^4.2.2",
       "@testing-library/jest-dom": "^5.11.4",
@@ -22,6 +30,24 @@
     "devDependencies": {
       "eslint": "^7.12.1",
       "eslint-plugin-react": "^7.21.5"
+    },
+    "eslintConfig": {
+      "extends": [
+        "react-app",
+        "react-app/jest"
+      ]
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
     }
   }
 }
