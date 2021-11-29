@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import "antd/dist/antd.css";
-import App from "./App";
-
-import { createRootStore, history } from "./store";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
+import "antd/dist/antd.css";
+
+import App from "./App";
+import "./index.css";
+import { store, history } from "./store";
 
 ReactDOM.render(
-  <Provider store={createRootStore()}>
+  <Provider store={store()}>
     <ConnectedRouter history={history}>
       <App history={history} />
     </ConnectedRouter>

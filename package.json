@@ -7,6 +7,14 @@
   "author": "pascallin <pascal_lin@foxmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "husky": "^7.0.0"
+  },
+  "dependencies": {
+    "husky": "^7.0.4"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "test": "lerna run test"
   }
 }

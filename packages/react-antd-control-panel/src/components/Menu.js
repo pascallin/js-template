@@ -5,7 +5,7 @@ import { Menu } from "antd";
 import { Link } from "react-router-dom";
 
 import { routes } from "../routes";
-import { pathSelector } from "../selectors/route";
+import { pathSelector } from "../redux/selectors";
 
 const { SubMenu } = Menu;
 

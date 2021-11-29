@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "antd";
 
-export default function Page_40403() {
+export default function Page_403() {
   return (
     <Card style={{ marginTop: "20px" }}>
       <h2>403</h2>

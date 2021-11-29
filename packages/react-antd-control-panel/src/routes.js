@@ -9,6 +9,7 @@ import {
 import Home from "./pages/Home";
 import List from "./pages/List";
 import { ROLE } from "./constant";
+import Counter from "./pages/Counter";
 
 export const routes = [
   {
@@ -25,10 +26,23 @@ export const routes = [
     roles: R.values(ROLE),
   },
   {
-    name: "列表Demo",
-    path: "/list",
-    component: List,
+    name: "Examples",
+    path: "/demo",
     icon: <TableOutlined />,
+    children: [
+      {
+        name: "列表Demo",
+        path: "/list",
+        component: List,
+        roles: R.values(ROLE),
+      },
+      {
+        name: "计数器（redux-tookit test）",
+        path: "/counter",
+        component: Counter,
+        roles: R.values(ROLE),
+      },
+    ],
     roles: R.values(ROLE),
   },
   {
