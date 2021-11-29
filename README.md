@@ -9,6 +9,15 @@ npm i -g @thruster/cli
 thruster create --from git --resource github.com:pascallin/js-template --path packages/react-antd-control-panel new-project
 ```
 
+## Development
+
+```shell
+yarn // or npm i
+yarn lerna bootstrap
+// start scripts example
+yarn lerna run --parallel start
+```
+
 ## packages templates
 
 ### typescript-basic-template
