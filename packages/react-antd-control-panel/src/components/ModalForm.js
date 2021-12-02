@@ -7,15 +7,15 @@ const ContainerDiv = styled.div`
   padding: 15px;
 `;
 
-const CollectionCreateForm = (props) => {
-  const { visible, onCreate, onCancel, confirmLoading } = props;
+const SaveForm = (props) => {
+  const { visible, onCreate, onCancel, confirmLoading, title } = props;
   const [form] = Form.useForm();
 
   return (
     <Modal
       visible={visible}
-      title="Create a new collection"
-      okText="Create"
+      title={title}
+      okText="Save"
       cancelText="Cancel"
       confirmLoading={confirmLoading}
       onCancel={onCancel}
@@ -45,20 +45,21 @@ const CollectionCreateForm = (props) => {
   );
 };
 
-CollectionCreateForm.propTypes = {
+SaveForm.propTypes = {
   visible: PropTypes.bool.isRequired,
   onCreate: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
   children: PropTypes.arrayOf(PropTypes.element).isRequired, // some antd form item array
   confirmLoading: PropTypes.bool.isRequired,
+  title: PropTypes.string,
 };
 
-const CollectionsPage = (props) => {
+const ModalForm = (props) => {
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const { saveAction } = props;
 
-  const onCreate = async (values) => {
+  const onSave = async (values) => {
     setConfirmLoading(true);
     await saveAction(values);
     setConfirmLoading(false);
@@ -75,23 +76,25 @@ const CollectionsPage = (props) => {
       >
         创建
       </Button>
-      <CollectionCreateForm
+      <SaveForm
         visible={visible}
-        onCreate={onCreate}
+        onCreate={onSave}
         onCancel={() => {
           setVisible(false);
         }}
         confirmLoading={confirmLoading}
+        title={props.formTitle || "New Form"}
       >
         {props.children}
-      </CollectionCreateForm>
+      </SaveForm>
     </ContainerDiv>
   );
 };
 
-CollectionsPage.propTypes = {
+ModalForm.propTypes = {
   saveAction: PropTypes.func.isRequired,
   children: PropTypes.arrayOf(PropTypes.element).isRequired, // some antd form item array
+  formTitle: PropTypes.string,
 };
 
-export default CollectionsPage;
+export default ModalForm;
