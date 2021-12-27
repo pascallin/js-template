@@ -2,9 +2,9 @@ import React from "react";
 import { Tag, Space, Form, Input, Radio } from "antd";
 import * as R from "ramda";
 
-import APISearchTable from "../components/APISearchTable";
-import ModalForm from "../components/ModalForm";
-import { tableData } from "../constant/mockData";
+import APISearchTable from "../../components/APISearchTable";
+import ModalForm from "../../components/ModalForm";
+import { tableData } from "../../constant/mockData";
 
 function timeout(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -23,7 +23,7 @@ export default function List() {
       dataIndex: "name",
       key: "name",
       render: function NameColumn(text) {
-        return <a>{text}</a>;
+        return <span><a>{text}</a></span>;
       },
     },
     {

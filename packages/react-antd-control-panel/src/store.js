@@ -4,7 +4,7 @@ import { createBrowserHistory } from "history";
 import thunk from "redux-thunk";
 import { combineReducers } from "@reduxjs/toolkit";
 
-import counterReducer from "./redux/counter/counterSlice";
+import counterReducer from "./features/counter/counterSlice";
 
 export const history = createBrowserHistory();
 

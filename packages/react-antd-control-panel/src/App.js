@@ -9,8 +9,8 @@ import authService from "./services/auth";
 import { RolePageHoc } from "./components/RoleCanHoc";
 import wrapLayout from "./components/LayoutHoc";
 import wrapContent from "./components/ContentHoc";
-import Page404 from "./pages/common/404";
-import Login from "./pages/Login";
+import Page404 from "./pages/404";
+import Login from "./features/auth/Login";
 
 App.propTypes = {
   history: PropTypes.object,

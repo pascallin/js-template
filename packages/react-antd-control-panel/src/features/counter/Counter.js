@@ -5,7 +5,7 @@ import {
   increment,
   decrement,
   counterValueSelector,
-} from "../redux/counter/counterSlice";
+} from "./counterSlice";
 
 export default function CounterPage() {
   const value = useSelector(counterValueSelector);

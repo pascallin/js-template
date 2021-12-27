@@ -7,9 +7,9 @@ import {
 } from "@ant-design/icons";
 
 import Home from "./pages/Home";
-import List from "./pages/List";
+import List from "./features/list/List";
 import { ROLE } from "./constant";
-import Counter from "./pages/Counter";
+import Counter from "./features/counter/Counter";
 
 export const routes = [
   {

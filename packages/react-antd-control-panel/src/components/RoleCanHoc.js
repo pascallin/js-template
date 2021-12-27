@@ -1,6 +1,6 @@
 import React from "react";
 import userService from "../services/auth";
-import Page403 from "../pages/common/403";
+import Page403 from "../pages/403";
 
 export const RoleCanHoc = (roleList) => (Component) => {
   return function RoleCan(props) {
