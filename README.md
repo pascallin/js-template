@@ -15,7 +15,7 @@ thruster create --from git --resource github.com:pascallin/js-template --path pa
 yarn // or npm i
 yarn lerna bootstrap
 // start scripts example
-yarn lerna run --parallel start
+yarn lerna run start --parallel
 ```
 
 ## packages templates

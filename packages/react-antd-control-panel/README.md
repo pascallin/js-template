@@ -1,6 +1,6 @@
 # react antd control panel
 
-this is a admin control panel
+this is a control panel
 
 ## tech stack
 
@@ -8,17 +8,13 @@ this is a admin control panel
 - `eslint` for code style
 - react
 - redux
+- redux-toolkit
 - antd
 - styled-components
 
-## framework description（to be fullfil）
-
-### folder construction
-
-```shell
-
-```
-
 ### Common Components
+
+- APISearchTable
+- RoleCanHoc
 
 ### API call
